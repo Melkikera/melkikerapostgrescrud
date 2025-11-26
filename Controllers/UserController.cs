@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 namespace melkikerapostgrescrud.Controllers
 {
     [ApiController] // Specifies that this is an API controller
-    [Route("api/users")] // Defines the route as 'api/product'
+    [Route("api/users")] // Defines the route as 'api/user'
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService; // Service instance for business logic

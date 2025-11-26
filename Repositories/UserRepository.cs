@@ -13,50 +13,50 @@ namespace melkikerapostgrescrud.Repositories
             _context = context; // Injecting database context via constructor
         }
 
-        // Retrieves all products from the database
+        // Retrieves all users from the database
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            // Converts the Products table into a list and returns it asynchronously
+            // Converts the users table into a list and returns it asynchronously
             return await _context.Users.ToListAsync();
         }
 
-        // Retrieves a product by its ID
+        // Retrieves a user by its ID
         public async Task<User> GetByIdAsync(int id)
         {
-            // Uses FindAsync to search for a product by its primary key (ID)
+            // Uses FindAsync to search for a user by its primary key (ID)
             return await _context.Users.FindAsync(id);
         }
 
-        // Adds a new product to the database
+        // Adds a new user to the database
         public async Task AddAsync(User user)
         {
-            // Adds the product entity to the database context
+            // Adds the user entity to the database context
             await _context.Users.AddAsync(user);
 
             // Saves the changes to the database asynchronously
             await _context.SaveChangesAsync();
         }
 
-        // Updates an existing product in the database
+        // Updates an existing user in the database
         public async Task UpdateAsync(User user)
         {
-            // Marks the product entity as updated in the database context
+            // Marks the user entity as updated in the database context
             _context.Users.Update(user);
 
-            // Saves the updated product data to the database asynchronously
+            // Saves the updated user data to the database asynchronously
             await _context.SaveChangesAsync();
         }
 
-        // Deletes a product by its ID
+        // Deletes a user by its ID
         public async Task DeleteAsync(int id)
         {
-            // Finds the product in the database using the provided ID
-            var product = await _context.Users.FindAsync(id);
+            // Finds the user in the database using the provided ID
+            var user = await _context.Users.FindAsync(id);
 
-            // If the product exists, remove it from the database
-            if (product != null)
+            // If the user exists, remove it from the database
+            if (user != null)
             {
-                _context.Users.Remove(product);
+                _context.Users.Remove(user);
 
                 // Saves the changes to the database asynchronously
                 await _context.SaveChangesAsync();
